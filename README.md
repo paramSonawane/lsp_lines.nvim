@@ -1,5 +1,11 @@
 # lsp_lines.nvim
 
+[Source](https://git.sr.ht/~whynothugo/lsp_lines.nvim) |
+[Issues](https://todo.sr.ht/~whynothugo/lsp_lines.nvim) |
+[Discussion/Patches](https://lists.sr.ht/~whynothugo/lsp_lines.nvim) |
+[Chat](irc://ircs.libera.chat:6697/#whynothugo) |
+[Sponsor](https://whynothugo.nl/sponsor/)
+
 `lsp_lines` is a simple neovim plugin that renders diagnostics using virtual
 lines on top of the real line of code.
 
@@ -90,17 +96,11 @@ vim.keymap.set(
 )
 ```
 
-# Contributing
-
-- Discussion or patches: ~whynothugo/lsp_lines.nvim@lists.sr.ht
-- Bugs / Issues: https://todo.sr.ht/~whynothugo/lsp_lines.nvim
-- Sponsor my work: https://whynothugo.nl/sponsor/
-
 # Development
 
 It would be nice to show connecting lines when there's relationship between
 diagnostics (as is the case with `rust_analyzer`). Oh perhaps surface them via
-hover().
+`vim.lsp.buf.hover`.
 
 # Licence
 

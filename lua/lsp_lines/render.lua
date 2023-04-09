@@ -170,7 +170,13 @@ function M.show(namespace, bufnr, diagnostics, opts, source)
         -- c. Is just one line.
         -- d. Is not an overlap.
 
-        for msg_line in diagnostic.message:gmatch("([^\n]+)") do
+        local msg
+        if diagnostic.code then
+          msg = string.format("%s: %s", diagnostic.code, diagnostic.message)
+        else
+          msg = diagnostic.message
+        end
+        for msg_line in msg:gmatch("([^\n]+)") do
           local vline = {}
           vim.list_extend(vline, left)
           vim.list_extend(vline, center)

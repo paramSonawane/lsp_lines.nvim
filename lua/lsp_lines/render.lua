@@ -42,7 +42,7 @@ end
 ---@param namespace number
 ---@param bufnr number
 ---@param diagnostics table
----@param opts boolean
+---@param opts boolean|Opts
 ---@param source 'native'|'coc'|nil If nil, defaults to 'native'.
 function M.show(namespace, bufnr, diagnostics, opts, source)
   vim.validate({
@@ -116,6 +116,12 @@ function M.show(namespace, bufnr, diagnostics, opts, source)
     for i = #lelements, 1, -1 do -- last element goes on top
       if lelements[i][1] == DIAGNOSTIC then
         local diagnostic = lelements[i][2]
+        local empty_space_hi
+        if opts.virtual_lines and opts.virtual_lines.highlight_whole_line == false then
+          empty_space_hi = ""
+        else
+          empty_space_hi = highlight_groups[diagnostic.severity]
+        end
 
         local left = {}
         local overlap = false
@@ -127,7 +133,7 @@ function M.show(namespace, bufnr, diagnostics, opts, source)
           local data = lelements[j][2]
           if type == SPACE then
             if multi == 0 then
-              table.insert(left, { data, "" })
+              table.insert(left, { data, empty_space_hi })
             else
               table.insert(left, { string.rep("─", data:len()), highlight_groups[diagnostic.severity] })
             end
@@ -186,9 +192,9 @@ function M.show(namespace, bufnr, diagnostics, opts, source)
 
           -- Special-case for continuation lines:
           if overlap then
-            center = { { "│", highlight_groups[diagnostic.severity] }, { "     ", "" } }
+            center = { { "│", highlight_groups[diagnostic.severity] }, { "     ", empty_space_hi } }
           else
-            center = { { "      ", "" } }
+            center = { { "      ", empty_space_hi } }
           end
         end
       end

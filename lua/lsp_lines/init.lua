@@ -17,6 +17,13 @@ local function render_current_line(diagnostics, ns, bufnr, opts)
   render.show(ns, bufnr, current_line_diag, opts)
 end
 
+---@class Opts
+---@field virtual_lines OptsVirtualLines Options for lsp_lines plugin
+
+---@class OptsVirtualLines
+---@field only_current_line boolean Only render for current line
+---@field highlight_whole_line boolean Highlight empty space to the left of a diagnostic
+
 -- Registers a wrapper-handler to render lsp lines.
 -- This should usually only be called once, during initialisation.
 M.setup = function()
@@ -26,7 +33,7 @@ M.setup = function()
     ---@param namespace number
     ---@param bufnr number
     ---@param diagnostics table
-    ---@param opts boolean
+    ---@param opts boolean|Opts
     show = function(namespace, bufnr, diagnostics, opts)
       local ns = vim.diagnostic.get_namespace(namespace)
       if not ns.user_data.virt_lines_ns then

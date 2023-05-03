@@ -81,6 +81,7 @@ vim.diagnostic.config({ virtual_lines = true })
 ```
 
 To show virtual lines only for the current line's diagnostics:
+
 ```lua
 vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
 ```

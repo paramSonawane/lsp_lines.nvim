@@ -89,7 +89,7 @@ vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
 If you don't want to highlight the entire diagnostic line, use:
 
 ```lua
-vim.diagnostic.config({ virtual_lines = { highighlight_whole_line = false } })
+vim.diagnostic.config({ virtual_lines = { highlight_whole_line = false } })
 ```
 
 A helper is also provided to toggle, which is convenient for mappings:

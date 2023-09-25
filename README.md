@@ -106,7 +106,7 @@ vim.keymap.set(
 # Development
 
 It would be nice to show connecting lines when there's relationship between
-diagnostics (as is the case with `rust_analyzer`). Oh perhaps surface them via
+diagnostics (as is the case with `rust_analyzer`). Or perhaps surface them via
 `vim.lsp.buf.hover`.
 
 # Licence

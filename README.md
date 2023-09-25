@@ -21,9 +21,9 @@ Theme is [tokyonight.nvim][theme].
 
 LSPs provide lots of useful diagnostics for code (typically: errors, warnings,
 linting). By default they're displayed using virtual text at the end of the
-line which is in many cases good enough, but often there's more than one
-diagnostic per line. It's also quite common to have more than one diagnostic
-per line, but again, there's no handy way to read the whole thing.
+line which in some situations might be good enough, but often the diagnostic
+simply doesn't fit on screen. It's also quite common to have more than one
+diagnostic per line, but there's no way to view more than the first.
 
 `lsp_lines` solves this issue.
 

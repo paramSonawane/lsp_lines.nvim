@@ -1,11 +1,11 @@
+## !!Disclaimer!!
+This is a fork of original [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
+aiming to resolve the issue with async nvim-lint where if there are two `.try_lint()` functions
+called back to back, only last one is rendered by `lsp_lines`. This fork simply applies solution given in the
+[issue 48](https://todo.sr.ht/~whynothugo/lsp_lines.nvim/48). Credits where it's due.
+
+
 # lsp_lines.nvim
-
-[Source](https://git.sr.ht/~whynothugo/lsp_lines.nvim) |
-[Issues](https://todo.sr.ht/~whynothugo/lsp_lines.nvim) |
-[Discussion/Patches](https://lists.sr.ht/~whynothugo/lsp_lines.nvim) |
-[Chat](irc://ircs.libera.chat:6697/#whynothugo) |
-[Sponsor](https://whynothugo.nl/sponsor/)
-
 `lsp_lines` is a simple neovim plugin that renders diagnostics using virtual
 lines on top of the real line of code.
 
@@ -35,7 +35,7 @@ Using packer.nvim (this should probably be registered _after_ `lspconfig`):
 
 ```lua
 use({
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  "paramSonawane/lsp_lines.nvim",
   config = function()
     require("lsp_lines").setup()
   end,
@@ -48,7 +48,7 @@ You can algo just clone the repo into neovim's plug-in directory:
 
     mkdir -p $HOME/.local/share/nvim/site/pack/plugins/start/
     cd $HOME/.local/share/nvim/site/pack/plugins/start/
-    git clone git@git.sr.ht:~whynothugo/lsp_lines.nvim
+    git clone git@github.com:paramSonawane/lsp_lines.nvim.git
 
 And then in `init.lua`:
 
@@ -102,13 +102,3 @@ vim.keymap.set(
   { desc = "Toggle lsp_lines" }
 )
 ```
-
-# Development
-
-It would be nice to show connecting lines when there's relationship between
-diagnostics (as is the case with `rust_analyzer`). Or perhaps surface them via
-`vim.lsp.buf.hover`.
-
-# Licence
-
-This project is licensed under the ISC licence. See LICENCE for more details.

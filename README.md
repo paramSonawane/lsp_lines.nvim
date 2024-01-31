@@ -1,5 +1,5 @@
 ## !!Disclaimer!!
-This is a fork of original [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
+This is a github mirror to [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
 aiming to resolve the issue with async nvim-lint where if there are two `.try_lint()` functions
 called back to back, only last one is rendered by `lsp_lines`. This fork simply applies solution given in the
 [issue 48](https://todo.sr.ht/~whynothugo/lsp_lines.nvim/48). Credits where it's due.
